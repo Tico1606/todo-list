@@ -1,3 +1,3 @@
-import { FastifyApp } from './fastify/fastify-app'
+import { FastifyApp } from './fastify/fastify-app.ts'
 
 export const app = new FastifyApp()

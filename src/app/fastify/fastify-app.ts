@@ -1,15 +1,22 @@
-import type { IServerApp } from '@/core/interfaces'
 // import fastifyJwt from "@fastify/jwt";
 // import fastifyCookie from "@fastify/cookie";
-import Fastify, { type FastifyInstance } from 'fastify'
+import { env } from '@/constants/index.ts'
+import type { IServerApp } from '@/interfaces/handlers/server-app.ts'
+import fastify, { type FastifyInstance } from 'fastify'
+import {
+  type ZodTypeProvider,
+  serializerCompiler,
+  validatorCompiler,
+} from 'fastify-type-provider-zod'
 import { ZodError } from 'zod'
-import { env } from '../../env'
 
 export class FastifyApp implements IServerApp {
   private readonly app: FastifyInstance
 
   constructor() {
-    this.app = Fastify()
+    this.app = fastify().withTypeProvider<ZodTypeProvider>()
+    this.app.setSerializerCompiler(serializerCompiler)
+    this.app.setValidatorCompiler(validatorCompiler)
     this.setErrorHandler()
     // app.register(fastifyJwt, {
     //   secret: env.JWT_SECRET,

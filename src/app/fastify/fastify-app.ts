@@ -1,6 +1,13 @@
 // import fastifyJwt from "@fastify/jwt";
 // import fastifyCookie from "@fastify/cookie";
-import { env } from '@/constants/index.ts'
+import { HTTP_STATUS_CODE, env } from '@/constants/index.ts'
+import {
+  AppError,
+  ConflictError,
+  NotAllowedError,
+  NotFoundError,
+  ValidationError,
+} from '@/errors/index.ts'
 import type { IServerApp } from '@/interfaces/handlers/server-app.ts'
 import fastify, { type FastifyInstance } from 'fastify'
 import {
@@ -48,16 +55,50 @@ export class FastifyApp implements IServerApp {
   private setErrorHandler() {
     this.app.setErrorHandler((error, _, reply) => {
       if (error instanceof ZodError) {
-        return reply
-          .status(400)
-          .send({ message: 'Validation error.', issues: error.format() })
+        return reply.status(HTTP_STATUS_CODE.badRequest).send({
+          message: 'Erro de validação.',
+          issues: error.format(),
+        })
+      }
+
+      if (error instanceof AppError) {
+        if (env.NODE_ENV !== 'production') {
+          console.error('Error title:', error.title)
+          console.error('Error message:', error.message)
+        }
+
+        const response = {
+          title: error.title,
+          message: error.message,
+        }
+
+        if (error instanceof NotAllowedError) {
+          return reply.status(HTTP_STATUS_CODE.unauthorized).send(response)
+        }
+
+        if (error instanceof NotFoundError) {
+          return reply.status(HTTP_STATUS_CODE.notFound).send(response)
+        }
+
+        if (error instanceof ConflictError) {
+          return reply.status(HTTP_STATUS_CODE.conflict).send(response)
+        }
+
+        if (error instanceof ValidationError) {
+          return reply.status(HTTP_STATUS_CODE.badRequest).send(response)
+        }
+
+        return reply.status(HTTP_STATUS_CODE.serverError).send(response)
       }
 
       if (env.NODE_ENV !== 'production') {
         console.error(error)
       }
 
-      return reply.status(500).send({ message: 'Internal server error' })
+      return reply.status(HTTP_STATUS_CODE.serverError).send({
+        title: 'Server Error',
+        message: error instanceof Error ? error.message : 'Erro desconhecido',
+      })
     })
   }
 }

@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "start": "node build/server.js"
+    "start": "node build/server.js",
+    "test": "vitest run --dir src/use-cases",
+    "test:watch": "vitest --dir src/use-cases",
+    "test:ui": "vitest --ui"
   },
   "author": "",
   "license": "ISC",
@@ -14,7 +17,9 @@
     "@biomejs/biome": "1.8.3",
     "@types/node": "24.0.4",
     "tsx": "4.20.3",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "@fastify/cors": "^11.0.1",

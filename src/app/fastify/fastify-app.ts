@@ -10,6 +10,7 @@ import {
   ValidationError,
 } from '@/errors/index.ts'
 import type { IServerApp } from '@/interfaces/handlers/server-app.ts'
+import fastifyCors from '@fastify/cors'
 import fastify, { type FastifyInstance } from 'fastify'
 import {
   type ZodTypeProvider,
@@ -25,6 +26,7 @@ export class FastifyApp implements IServerApp {
     this.app = fastify().withTypeProvider<ZodTypeProvider>()
     this.app.setSerializerCompiler(serializerCompiler)
     this.app.setValidatorCompiler(validatorCompiler)
+    this.registerCors()
     this.registerRoutes()
     this.setErrorHandler()
     // app.register(fastifyJwt, {
@@ -53,6 +55,12 @@ export class FastifyApp implements IServerApp {
   }
 
   stopServer() {}
+
+  private registerCors() {
+    this.app.register(fastifyCors, {
+      origin: 'http://localhost:5173',
+    })
+  }
 
   private registerRoutes() {
     this.app.register(TasksRoutes, { prefix: '/tasks' })

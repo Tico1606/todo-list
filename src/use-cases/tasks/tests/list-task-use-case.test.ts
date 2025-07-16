@@ -27,7 +27,7 @@ describe('ListTaskUseCase', () => {
     const { tasks } = await useCase.execute({
       name: 'Task',
       checked: false,
-      due_date: new Date(),
+      due_date: '2025-08-25',
       priority: 'HIGH',
       page: 1,
     })
@@ -43,8 +43,10 @@ describe('ListTaskUseCase', () => {
 
     const { tasks: page1 } = await useCase.execute({ page: 1 })
     const { tasks: page2 } = await useCase.execute({ page: 2 })
+    const { tasks: page3 } = await useCase.execute({ page: 3 })
 
-    expect(page1).toHaveLength(20)
-    expect(page2).toHaveLength(5)
+    expect(page1).toHaveLength(10)
+    expect(page2).toHaveLength(10)
+    expect(page3).toHaveLength(5)
   })
 })

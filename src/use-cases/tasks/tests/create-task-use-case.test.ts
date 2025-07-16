@@ -17,7 +17,7 @@ describe('CreateTaskUseCase', () => {
       taskDto: {
         name: 'New Task',
         description: 'Create a task',
-        due_date: new Date('2025-07-20'),
+        due_date: '2025-07-20',
         priority: 'HIGH',
       },
     })

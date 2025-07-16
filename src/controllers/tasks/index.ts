@@ -5,6 +5,7 @@ export { UpdateTaskController } from './update-task-controller.ts'
 export { DeleteTaskController } from './delete-task-controller.ts'
 
 export { createTaskBodySchema } from './create-task-controller.ts'
+export { getTasksQuerySchema } from './get-tasks-controller.ts'
 export { listTaskQuerySchema } from './list-task-controller.ts'
 export { updateTaskParamsSchema } from './update-task-controller.ts'
 export { updateTaskBodySchema } from './update-task-controller.ts'

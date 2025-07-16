@@ -6,6 +6,7 @@ import {
   UpdateTaskController,
   createTaskBodySchema,
   deleteTaskParamsSchema,
+  getTasksQuerySchema,
   listTaskQuerySchema,
   updateTaskBodySchema,
   updateTaskParamsSchema,
@@ -23,10 +24,18 @@ export const TasksRoutes: FastifyPluginCallbackZod = (app) => {
     CreateTaskController,
   )
 
-  app.get('/', GetTasksController)
-
   app.get(
     '/',
+    {
+      schema: {
+        querystring: getTasksQuerySchema,
+      },
+    },
+    GetTasksController,
+  )
+
+  app.get(
+    '/list',
     {
       schema: {
         querystring: listTaskQuerySchema,

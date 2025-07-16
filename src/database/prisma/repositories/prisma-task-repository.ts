@@ -76,6 +76,16 @@ export class PrismaTaskRepository implements ITaskRepository {
     }
   }
 
+  async getTasks(): Promise<Task[]> {
+    try {
+      const tasks = await prisma.task.findMany()
+
+      return tasks
+    } catch (error) {
+      throw new PrismaError(error)
+    }
+  }
+
   async create(data: TaskCreateParams): Promise<Task> {
     const due_date = data.due_date ? dayjs(data.due_date).endOf('date').toDate() : null
 

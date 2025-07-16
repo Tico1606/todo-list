@@ -1,4 +1,5 @@
 export { CreateTaskController } from './create-task-controller.ts'
+export { GetTasksController } from './get-tasks-controller.ts'
 export { ListTaskController } from './list-task-controller.ts'
 export { UpdateTaskController } from './update-task-controller.ts'
 export { DeleteTaskController } from './delete-task-controller.ts'

@@ -77,9 +77,14 @@ export class PrismaTaskRepository implements ITaskRepository {
   }
 
   async create(data: TaskCreateParams): Promise<Task> {
+    const due_date = data.due_date ? dayjs(data.due_date).endOf('date').toDate() : null
+
     try {
       const task = await prisma.task.create({
-        data,
+        data: {
+          ...data,
+          due_date,
+        },
       })
 
       return task
@@ -89,12 +94,15 @@ export class PrismaTaskRepository implements ITaskRepository {
   }
 
   async update(data: TaskUpdateParams, taskId: string): Promise<Task> {
+    const due_date = data.due_date ? dayjs(data.due_date).endOf('date').toDate() : null
+
     try {
       const task = await prisma.task.update({
         data: {
           name: data.name,
           description: data.description,
-          due_date: data.due_date,
+          checked: data.checked,
+          due_date: due_date,
           priority: data.priority,
         },
         where: { id: taskId },

@@ -1,5 +1,4 @@
 export { CreateTaskUseCase } from './create-task-use-case.ts'
-export { GetTasksUseCase } from './get-tasks-use-case.ts'
 export { ListTaskUseCase } from './list-task-use-case.ts'
 export { UpdateTaskUseCase } from './update-task-use-case.ts'
 export { DeleteTaskUseCase } from './delete-task-use-case.ts'

@@ -1,5 +1,6 @@
 // import fastifyJwt from "@fastify/jwt";
 // import fastifyCookie from "@fastify/cookie";
+import { TasksRoutes } from '@/app/routes/index.ts'
 import { HTTP_STATUS_CODE, env } from '@/constants/index.ts'
 import {
   AppError,
@@ -24,6 +25,7 @@ export class FastifyApp implements IServerApp {
     this.app = fastify().withTypeProvider<ZodTypeProvider>()
     this.app.setSerializerCompiler(serializerCompiler)
     this.app.setValidatorCompiler(validatorCompiler)
+    this.registerRoutes()
     this.setErrorHandler()
     // app.register(fastifyJwt, {
     //   secret: env.JWT_SECRET,
@@ -39,8 +41,8 @@ export class FastifyApp implements IServerApp {
     // app.register(fastifyCookie)
   }
 
-  startServer() {
-    this.app
+  async startServer() {
+    await this.app
       .listen({
         host: '0.0.0.0',
         port: env.PORT,
@@ -51,6 +53,10 @@ export class FastifyApp implements IServerApp {
   }
 
   stopServer() {}
+
+  private registerRoutes() {
+    this.app.register(TasksRoutes, { prefix: '/tasks' })
+  }
 
   private setErrorHandler() {
     this.app.setErrorHandler((error, _, reply) => {

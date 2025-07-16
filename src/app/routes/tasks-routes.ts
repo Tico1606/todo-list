@@ -1,6 +1,7 @@
 import {
   CreateTaskController,
   DeleteTaskController,
+  GetTasksController,
   ListTaskController,
   UpdateTaskController,
   createTaskBodySchema,
@@ -21,6 +22,8 @@ export const TasksRoutes: FastifyPluginCallbackZod = (app) => {
     },
     CreateTaskController,
   )
+
+  app.get('/', GetTasksController)
 
   app.get(
     '/',

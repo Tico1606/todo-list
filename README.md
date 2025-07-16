@@ -106,7 +106,3 @@ O projeto está estruturado seguindo os princípios de Clean Architecture:
 - `src/dtos/` - Objetos de transferência de dados
 - `src/interfaces/` - Contratos e interfaces
 - `src/types/` - Definições de tipos TypeScript
-
-## 📝 Licença
-
-ISC

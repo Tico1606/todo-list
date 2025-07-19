@@ -4,7 +4,7 @@ import type { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod/v4'
 
 export const updateTaskParamsSchema = z.object({
-  taskId: z.string().uuid(),
+  taskId: z.uuid(),
 })
 
 export const updateTaskBodySchema = z.object({

@@ -21,6 +21,6 @@ export class ListTaskUseCase {
       page,
     })
 
-    return { tasks }
+    return tasks 
   }
 }

@@ -26,9 +26,11 @@ export class FastifyApp implements IServerApp {
     this.app = fastify().withTypeProvider<ZodTypeProvider>()
     this.app.setSerializerCompiler(serializerCompiler)
     this.app.setValidatorCompiler(validatorCompiler)
+
     this.registerCors()
     this.registerRoutes()
     this.setErrorHandler()
+    
     // app.register(fastifyJwt, {
     //   secret: env.JWT_SECRET,
     //   cookie: {

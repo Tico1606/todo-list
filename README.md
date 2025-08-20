@@ -1,108 +1,88 @@
-# Todo-List
+<h1 align="center">
+  Todo List 📝
+</h1>
 
-Um sistema de gerenciamento de tarefas desenvolvido com Node.js, TypeScript e Fastify.
+<div align="center">
+   <a href="https://github.com/Tico1606">
+    <img alt="Made by Tico1606" src="https://img.shields.io/badge/made%20by-Tico1606-blueviolet">
+   </a>
+   <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/Tico1606/todo-list">
+   <a href="https://github.com/Tico1606/todo-list/commits/main">
+    <img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/Tico1606/todo-list">
+   </a>
+   <a href="https://github.com/Tico1606/todo-list/blob/main/LICENSE">
+    <img alt="GitHub License" src="https://img.shields.io/github/license/Tico1606/todo-list">
+   </a>
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/Tico1606/todo-list?style=social">
+</div>
+<br>
 
-**Desenvolvido por:** Tico1606
+## 🖥️ About
 
-## 🛠️ Tecnologias Utilizadas
+**Todo List** is a simple and intuitive web application to manage daily tasks. Users can **add, mark as completed, edit, and remove tasks**, keeping their day organized and improving productivity.  
 
-### Backend
-- **Node.js** - Runtime JavaScript
-- **TypeScript** - Superset tipado do JavaScript
-- **Fastify** - Framework web rápido e eficiente
-- **Prisma** - ORM para gerenciamento do banco de dados
-- **PostgreSQL** - Banco de dados relacional
-- **Zod** - Validação de schemas TypeScript-first
+The goal of developing this project was to practice **frontend development** using **React**, **TypeScript**, and **TailwindCSS**, creating a responsive and user-friendly interface.
 
-### Ferramentas de Desenvolvimento
-- **Biome** - Linter e formatter de código
-- **Vitest** - Framework de testes
-- **TSX** - Executor TypeScript para desenvolvimento
-- **Docker** - Containerização
+### ⏹️ Demonstration
 
-### Utilitários
-- **Day.js** - Manipulação de datas
-- **Dotenv** - Gerenciamento de variáveis de ambiente
+<!--
+<table align="center">
+  <tr>
+    <td align="center">
+      <span>Home page<br/><br/></span>
+      <img src="documentation/images/home-page.png" alt="Página inicial" height="420" />
+    </td>
+  </tr>
+</table>
+-->
 
-## 🏗️ Padrões de Projeto
+---
 
-- **Clean Architecture** - Separação clara de responsabilidades em camadas
-- **Repository Pattern** - Abstração da camada de dados
-- **Use Cases** - Encapsulamento da lógica de negócio
-- **DTOs** - Data Transfer Objects para validação de entrada
-- **Dependency Injection** - Inversão de dependências
+## ✨ Features
 
-## ⚙️ Configuração e Setup
+- [x] Add new tasks with a title and description  
+- [x] Mark tasks as completed  
+- [x] Edit existing tasks  
+- [x] Delete tasks  
+- [x] Filter tasks by status (all, completed, pending)  
+- [x] Responsive UI for mobile and desktop  
 
-### Pré-requisitos
-- Node.js (versão 18 ou superior)
-- Docker e Docker Compose
-- npm ou yarn
+---
 
-### 1. Clonar o repositório
+## ⚙️ Architecture
+
+### 🛠️ Technologies and tools
+
+This project was developed using:
+
+- **[React](https://react.dev/)** for building the user interface  
+- **[TypeScript](https://www.typescriptlang.org/)** for type safety and better code organization  
+- **[TailwindCSS](https://tailwindcss.com/)** for styling the components  
+- **[Vite](https://vitejs.dev/)** for compiling and running the project  
+
+> For more details on dependencies and versions, check the [package.json file](https://github.com/Tico1606/todo-list/blob/main/package.json)
+
+---
+
+## 🚀 How to run the application
+
+### 🔧 Prerequisites
+
+- [Git](https://git-scm.com/)  
+- [Node.js](https://nodejs.org/) (with npm or yarn)  
+- Optional: [VSCode](https://code.visualstudio.com/) for editing code  
+
+### 📟 Running the app
+
 ```bash
-git clone <url-do-repositorio>
-cd todolist
-```
+# Clone this repository
+git clone https://github.com/Tico1606/todo-list.git
 
-### 2. Instalar dependências
-```bash
+# Enter the project folder
+cd todo-list
+
+# Install dependencies
 npm install
-```
 
-### 3. Configurar variáveis de ambiente
-Crie um arquivo `.env` na raiz do projeto:
-```env
-DATABASE_URL="postgresql://docker:docker@localhost:5432/todolist"
-```
-
-### 4. Iniciar o banco de dados
-```bash
-docker-compose up -d
-```
-
-### 5. Executar migrações do Prisma
-```bash
-npx prisma migrate dev
-```
-
-### 6. Gerar o cliente Prisma
-```bash
-npx prisma generate
-```
-
-## 🚀 Scripts Disponíveis
-
-```bash
+# Run the application in development mode
 npm run dev
-
-npm run start
-
-npm run test
-npm run test:watch
-npm run test:ui
-```
-
-## 📊 Banco de Dados
-
-O projeto utiliza PostgreSQL com Prisma ORM. O schema inclui:
-
-- **Task** - Entidade principal para gerenciamento de tarefas
-  - ID único (UUID)
-  - Nome e descrição
-  - Status de conclusão
-  - Data de criação e vencimento
-  - Prioridade (LOW, MEDIUM, HIGH)
-
-## 🔧 Desenvolvimento
-
-O projeto está estruturado seguindo os princípios de Clean Architecture:
-
-- `src/app/` - Configuração da aplicação Fastify
-- `src/controllers/` - Controllers HTTP
-- `src/use-cases/` - Regras de negócio
-- `src/repositories/` - Camada de dados
-- `src/database/` - Configuração do Prisma
-- `src/dtos/` - Objetos de transferência de dados
-- `src/interfaces/` - Contratos e interfaces
-- `src/types/` - Definições de tipos TypeScript

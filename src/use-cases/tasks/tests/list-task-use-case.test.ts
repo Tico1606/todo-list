@@ -24,7 +24,7 @@ describe('ListTaskUseCase', () => {
     })
     await tasksRepository.create({ name: 'Another Task', priority: 'MEDIUM' })
 
-    const { tasks } = await useCase.execute({
+    const tasks = await useCase.execute({
       name: 'Task',
       checked: false,
       due_date: '2025-08-25',
@@ -41,12 +41,12 @@ describe('ListTaskUseCase', () => {
       await tasksRepository.create({ name: `Task ${i}` })
     }
 
-    const { tasks: page1 } = await useCase.execute({ page: 1 })
-    const { tasks: page2 } = await useCase.execute({ page: 2 })
-    const { tasks: page3 } = await useCase.execute({ page: 3 })
+    const tasks1 = await useCase.execute({ page: 1 })
+    const tasks2 = await useCase.execute({ page: 2 })
+    const tasks3 = await useCase.execute({ page: 3 })
 
-    expect(page1).toHaveLength(10)
-    expect(page2).toHaveLength(10)
-    expect(page3).toHaveLength(5)
+    expect(tasks1).toHaveLength(10)
+    expect(tasks2).toHaveLength(10)
+    expect(tasks3).toHaveLength(5)
   })
 })

@@ -63,6 +63,7 @@
     "indentWidth": 2,
     "lineWidth": 90
   },
+
   "javascript": {
     "formatter": {
       "enabled": true,

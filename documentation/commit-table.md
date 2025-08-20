@@ -1,5 +1,4 @@
 |Emoji| |Prefixo|: |Descrição do commit em inglês|
-
 ## Tabela de commits
 
 | Tipo de commit                  | Prefixo   | Emoji |

@@ -2,30 +2,29 @@
   Todo List 📝
 </h1>
 
+---
+
 <div align="center">
-   <a href="https://github.com/Tico1606">
     <img alt="Made by Tico1606" src="https://img.shields.io/badge/made%20by-Tico1606-blueviolet">
-   </a>
-   <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/Tico1606/todo-list">
-   <a href="https://github.com/Tico1606/todo-list/commits/main">
+    <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/Tico1606/todo-list">
     <img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/Tico1606/todo-list">
-   </a>
-   <a href="https://github.com/Tico1606/todo-list/blob/main/LICENSE">
     <img alt="GitHub License" src="https://img.shields.io/github/license/Tico1606/todo-list">
-   </a>
     <img alt="Stargazers" src="https://img.shields.io/github/stars/Tico1606/todo-list?style=social">
 </div>
-<br>
+
+---
 
 ## 🖥️ About
 
-**Todo List** is a simple and intuitive web application to manage daily tasks. Users can **add, mark as completed, edit, and remove tasks**, keeping their day organized and improving productivity.  
+**Todo List** is a robust and efficient backend service designed to streamline task management. It allows client applications to create, query, update, and delete tasks, serving as a reliable foundation for scalable productivity tools.
 
-The goal of developing this project was to practice **frontend development** using **React**, **TypeScript**, and **TailwindCSS**, creating a responsive and user-friendly interface.
+The goal of developing this project was to practice **backend development** using **TypeScript**, **NodeJs**, **Fastify**, **Prisma**, and **Vitest**, ccreating a full API with funcionalitys to manipulate your tasks.
 
-### ⏹️ Demonstration
+---
 
 <!--
+### ⏹️ Demonstration
+
 <table align="center">
   <tr>
     <td align="center">
@@ -34,9 +33,9 @@ The goal of developing this project was to practice **frontend development** usi
     </td>
   </tr>
 </table>
--->
 
 ---
+-->
 
 ## ✨ Features
 
@@ -55,10 +54,11 @@ The goal of developing this project was to practice **frontend development** usi
 
 This project was developed using:
 
-- **[React](https://react.dev/)** for building the user interface  
-- **[TypeScript](https://www.typescriptlang.org/)** for type safety and better code organization  
-- **[TailwindCSS](https://tailwindcss.com/)** for styling the components  
-- **[Vite](https://vitejs.dev/)** for compiling and running the project  
+- **[TypeScript](https://www.typescriptlang.org/)** for type safety and better code organization
+- **[NodeJs](https://nodejs.org/)** for run JavaScript on backend
+- **[Fastify](https://fastify.dev)** for run the server of API
+- **[Fastify](https://www.prisma.io)** an ORM to manipulate PostgreeSQL database
+- **[Vitest](https://vitest.dev)** for tests on the system
 
 > For more details on dependencies and versions, check the [package.json file](https://github.com/Tico1606/todo-list/blob/main/package.json)
 
@@ -83,6 +83,15 @@ cd todo-list
 
 # Install dependencies
 npm install
+
+# Generate the Prisma types
+npm run generate
+
+# Migrate the database
+npm run migrate
+
+# Seed the database
+npm run seed
 
 # Run the application in development mode
 npm run dev

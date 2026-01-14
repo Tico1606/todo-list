@@ -10,8 +10,6 @@
     <img alt="Stargazers" src="https://img.shields.io/github/stars/Tico1606/todo-list?style=social">
 </div>
 
----
-
 ## 🖥️ About
 
 **Todo List** is a robust and efficient backend service designed to streamline task management. It allows client applications to create, query, update, and delete tasks, serving as a reliable foundation for scalable productivity tools.

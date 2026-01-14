@@ -15,12 +15,12 @@ describe('ListTaskUseCase', () => {
     await tasksRepository.create({
       name: 'Task One',
       priority: 'HIGH',
-      due_date: new Date(),
+      due_date: new Date('2025-08-25'),
     })
     await tasksRepository.create({
       name: 'Task Two',
       priority: 'LOW',
-      due_date: new Date(),
+      due_date: new Date('2025-08-24'),
     })
     await tasksRepository.create({ name: 'Another Task', priority: 'MEDIUM' })
 

@@ -2,8 +2,6 @@
   Todo List 📝
 </h1>
 
----
-
 <div align="center">
     <img alt="Made by Tico1606" src="https://img.shields.io/badge/made%20by-Tico1606-blueviolet">
     <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/Tico1606/todo-list">
